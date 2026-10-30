@@ -1,4 +1,5 @@
 # XSSVault
+<img width="1434" height="860" alt="Screenshot From 2026-10-30 19-38-13" src="https://github.com/user-attachments/assets/92e30244-ef22-4d19-bc28-040335c29ac2" />
 
 A self-contained, sandboxed XSS training range: **36 labs** covering every major type of
 cross-site scripting, each with a scenario, guided hints, working payloads, a step-by-step
