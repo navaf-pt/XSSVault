@@ -89,7 +89,7 @@ function chrome(active) {
   ];
   app.innerHTML = `
     <header class="top"><div class="top-in">
-      <a class="brand" href="#/"><span class="glyph">▚</span> XSS Lab Forge <small>range</small></a>
+      <a class="brand" href="#/"><span class="glyph">▚</span> XSSVault <small>range</small></a>
       <nav class="nav">
         ${nav.map(([href, key, label]) => `<a href="${href}" class="${active === key ? 'on' : ''}">${label}${key === 'console' ? '<span class="count" id="console-count">0</span>' : ''}</a>`).join('')}
       </nav>

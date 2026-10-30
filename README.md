@@ -1,4 +1,4 @@
-# XSS Lab Forge
+# XSSVault
 
 A self-contained, sandboxed XSS training range: **36 labs** covering every major type of
 cross-site scripting, each with a scenario, guided hints, working payloads, a step-by-step
@@ -76,32 +76,3 @@ The suite lives outside the deployed bundle and needs no network beyond localhos
 Linux container Chromium may need system libraries and fonts; `tools/fetch-libs.sh` unpacks the
 Debian packages it needs into `.chromium-libs` without root, and `tools/fonts.conf` provides a
 minimal fontconfig setup.
-
-## Layout
-
-```
-public/            portal (static, no build step)
-  index.html       shell
-  app.js           hash router: home, lab, attacker console, defense guide, payload reference
-  styles.css       design system
-  data/            all lab content: scenario, hints, payloads, walkthrough, why, fix
-src/               Cloudflare Worker (the lab targets)
-  worker.js        router, attack-log API, JSONP gadget, shim route
-  shell.js         lab page shell, sandbox shim, escaping helpers, intentionally broken filters
-  store.js         D1 / in-memory storage
-  labs/*.js        one module per category, keyed by lab id
-dist/worker.js     bundled worker used for deployment
-tools/             lab test suite + sandbox helpers
-```
-
-## Adding a lab
-
-1. Add the entry to `public/data/<category>.js` (id, scenario, hints, payloads, walkthrough, fix).
-2. Implement the same id in `src/labs/<category>.js` (render the vulnerable page).
-3. Add a case to `tools/test-labs.mjs` with the walkthrough payload; it must fail before the lab
-   works and pass after.
-
-## Deploying
-
-`dist/worker.js` is a dependency-free ESM bundle; `public/` is served as static assets. The
-Worker also needs a D1 binding named `DB` for stored labs to survive across isolates.

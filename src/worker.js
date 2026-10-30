@@ -1,5 +1,5 @@
 /**
- * XSS Lab Forge — lab server.
+ * XSSVault — lab server.
  *
  * Everything under /lab/* is deliberately vulnerable and is only meant to be
  * rendered inside a sandboxed iframe by the portal. The portal itself is static
@@ -44,7 +44,7 @@ function notFound() {
     `<!doctype html><html><head><meta charset="utf-8"><title>Lab not found</title>
      <style>body{font:15px system-ui;background:#f4f6f9;color:#0f172a;padding:40px}h1{font-size:18px}a{color:#2563eb}</style>
      </head><body><h1>Lab not found</h1><p>That lab id does not exist. Go back to the range and pick one.</p>
-     <p><a href="/">← back to XSS Lab Forge</a></p></body></html>`,
+     <p><a href="/">← back to XSSVault</a></p></body></html>`,
     { status: 404 }
   );
 }
