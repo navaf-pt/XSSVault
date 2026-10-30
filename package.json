@@ -1,0 +1,17 @@
+{
+  "name": "xss-lab-forge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sandboxed XSS training labs with walkthroughs, covering reflected, stored, DOM, filter-bypass, blind, self-XSS and real-world attack chains.",
+  "scripts": {
+    "dev": "wrangler dev --port 3000 --ip 0.0.0.0",
+    "build": "esbuild src/worker.js --bundle --format=esm --outfile=dist/worker.js --minify",
+    "test:labs": "node tools/test-labs.mjs",
+    "fetch-libs": "bash tools/fetch-libs.sh"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0",
+    "wrangler": "^4.156.0"
+  }
+}
